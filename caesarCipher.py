@@ -34,6 +34,6 @@ def encrypt(plain_text, shift_amount):
 
 #TODO-3: Call the encrypt function and pass in the user inputs. You should be able to test the code and encrypt a message. 
 if direction == "encode":
-  encrypt(plai_text, shift_amount)
+  encrypt(plai_text = text, shift_amount = shift)
 elif direction == "decode":
   decrypt(text, shift)
