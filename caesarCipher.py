@@ -7,28 +7,52 @@ shift = int(input("Type the shift number:\n"))
 #TODO-1: Create a function called 'encrypt' that takes the 'text' and 'shift' as inputs.
 
 
-def encrypt(plain_text, shift_amount):
-  cipher_text_list = []
-  for letter in plain_text:
-    new_index = alphabet.index(letter) + shift_amount
-    print(new_index)
-    cipher_text_list.append(alphabet[new_index])
+def caesar(code_direction = direction, crypt_text = text, shift_amount = shift):
+  if code_direction == "encode":
+    cipher_text_list = []
+    for letter in crypt_text:
+      new_index = alphabet.index(letter) + shift_amount
+      print(new_index)
+      cipher_text_list.append(alphabet[new_index])
 
-  cipher_text_string = ''.join(cipher_text_list)
-  print(f"The encoded text is {cipher_text_string}")
+    cipher_text_string = ''.join(cipher_text_list)
+    print(f"The encoded text is {cipher_text_string}")
+    
+  elif code_direction == "decode":
+    plain_text_list = []
+    for letter in crypt_text:
+      new_index = alphabet.index(letter) - shift_amount
+      print(new_index)
+      plain_text_list.append(alphabet[new_index])
+
+    plain_text_string = ''.join(plain_text_list)
+    print(f"The encoded text is {plain_text_string}")
+
+
+
+# def encrypt(plain_text, shift_amount):
+#   cipher_text_list = []
+#   for letter in plain_text:
+#     new_index = alphabet.index(letter) + shift_amount
+#     print(new_index)
+#     cipher_text_list.append(alphabet[new_index])
+
+#   cipher_text_string = ''.join(cipher_text_list)
+#   print(f"The encoded text is {cipher_text_string}")
   
-def decrypt(cipher_text, shift_amount):
-  plain_text_list = []
-  for letter in cipher_text:
-    new_index = alphabet.index(letter) - shift_amount
-    print(new_index)
-    plain_text_list.append(alphabet[new_index])
+# def decrypt(cipher_text, shift_amount):
+#   plain_text_list = []
+#   for letter in cipher_text:
+#     new_index = alphabet.index(letter) - shift_amount
+#     print(new_index)
+#     plain_text_list.append(alphabet[new_index])
 
-  plain_text_string = ''.join(plain_text_list)
-  print(f"The encoded text is {plain_text_string}")
+#   plain_text_string = ''.join(plain_text_list)
+#   print(f"The encoded text is {plain_text_string}")
 
 
-if direction == "encode":
-  encrypt(plain_text = text, shift_amount = shift)
-elif direction == "decode":
-  decrypt(cipher_text = text, shift_amount = shift)
+# if direction == "encode":
+#   encrypt(plain_text = text, shift_amount = shift)
+# elif direction == "decode":
+#   decrypt(cipher_text = text, shift_amount = shift)
+caesar(code_direction = direction, crypt_text = text, shift_amount = shift)
